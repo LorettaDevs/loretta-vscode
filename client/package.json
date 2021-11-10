@@ -1,0 +1,23 @@
+{
+  "name": "loretta-lsp-client",
+  "description": "VSCode part of Loretta's language server",
+  "author": "GGG-KILLER",
+  "license": "MIT",
+  "version": "0.0.1",
+  "homepage": "https://github.com/GGG-KILLER/loretta-vscode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GGG-KILLER/loretta-vscode"
+  },
+  "publisher": "GGG-KILLER",
+  "engines": {
+    "vscode": "^1.52.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.52.0",
+    "@vscode/test-electron": "^1.6.1"
+  }
+}

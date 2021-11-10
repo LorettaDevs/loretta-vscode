@@ -1,0 +1,124 @@
+{
+  "name": "loretta-lua",
+  "displayName": "Lua/GLua",
+  "description": "A Lua/GLua language server",
+  "author": "GGG-KILLER",
+  "license": "MIT",
+  "version": "0.0.1",
+  "homepage": "https://github.com/GGG-KILLER/loretta-vscode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GGG-KILLER/loretta-vscode"
+  },
+  "publisher": "GGG-KILLER",
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Linters"
+  ],
+  "keywords": [
+    "Lua",
+    "GLua",
+    "Intellisense"
+  ],
+  "engines": {
+    "vscode": "^1.61.0"
+  },
+  "activationEvents": [
+    "onLanguage:lua"
+  ],
+  "main": "./client/out/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "lua",
+        "aliases": [
+          "Lua",
+          "lua"
+        ],
+        "extensions": [
+          ".lua"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lua",
+        "scopeName": "source.lua",
+        "path": "./syntaxes/lua.tmLanguage.json"
+      }
+    ],
+    "semanticTokenScopes": [
+      {
+        "language": "lua",
+        "scopes": {
+          "function": [
+            "variable.function.lua"
+          ],
+          "function.declaration": [
+            "entity.name.function.lua"
+          ],
+          "function.defaultLibrary": [
+            "support.function.lua"
+          ],
+          "function.static": [
+            "entity.name.function.lua"
+          ],
+          "method": [
+            "entity.name.function.lua"
+          ],
+          "method.declaration": [
+            "entity.name.function.lua"
+          ],
+          "parameter.declaration": [
+            "variable.parameter.lua"
+          ],
+          "property": [
+            "entity.other.attribute.lua"
+          ],
+          "property.declaration": [
+            "entity.other.property.lua"
+          ],
+          "variable": [
+            "variable.other.lua"
+          ],
+          "variable.abstract": [
+            "variable.other.constant.lua"
+          ],
+          "variable.declaration": [
+            "variable.other.lua"
+          ],
+          "variable.defaultLibrary": [
+            "support.constant.lua"
+          ],
+          "variable.local": [
+            "variable.other.lua"
+          ],
+          "variable.readonly": [
+            "variable.other.constant.lua"
+          ],
+          "variable.static": [
+            "variable.other.lua"
+          ]
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "pwsh ./publish-server.ps1 && tsc -b",
+    "watch": "tsc -b -w",
+    "lint": "eslint ./client/src --ext .ts,.tsx",
+    "postinstall": "cd client && npm install && cd ..",
+    "test": "sh ./scripts/e2e.sh"
+  },
+  "devDependencies": {
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^12.12.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "eslint": "^7.26.0",
+    "mocha": "^8.3.2",
+    "typescript": "^4.4.3"
+  }
+}

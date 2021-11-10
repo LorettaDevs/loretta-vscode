@@ -1,0 +1,3 @@
+[submodule "server"]
+	path = server
+	url = https://github.com/GGG-KILLER/Loretta.LanguageServer
