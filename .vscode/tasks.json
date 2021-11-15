@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "debug-compile",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: debug-compile",
+      "detail": "pwsh ./publish-server.ps1 -Debug && tsc -b"
+    },
+    {
+      "type": "npm",
+      "script": "compile",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: compile",
+      "detail": "pwsh ./publish-server.ps1 && tsc -b"
+    }
+  ]
+}

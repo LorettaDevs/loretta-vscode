@@ -107,6 +107,7 @@
   },
   "scripts": {
     "compile": "pwsh ./publish-server.ps1 && tsc -b",
+    "debug-compile": "pwsh ./publish-server.ps1 -Debug && tsc -b",
     "watch": "tsc -b -w",
     "lint": "eslint ./client/src --ext .ts,.tsx",
     "postinstall": "cd client && npm install && cd ..",
