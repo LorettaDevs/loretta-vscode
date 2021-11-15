@@ -1,21 +1,39 @@
 param(
 	[switch]$Debug = $false
 )
+
+$archs = @("win", "linux", "osx")
+$dotnetArgs = @(
+	"--nologo",
+	"--verbosity", "quiet",
+	"--self-contained",
+	"--framework", "net6.0",
+	"-p:PublishSingleFile=true"
+)
+if ($Debug) {
+	$dotnetArgs += @("--configuration", "Debug")
+}
+else {
+	$dotnetArgs += @(
+		"--configuration", "Release",
+		"-p:PublishTrimmed=true"
+	)
+}
+
 Push-Location "server"
-Remove-Item -Path "bin" -Recurse
-foreach ($os in "win", "linux", "osx") {
-	if ($Debug) {
-		dotnet publish --nologo --verbosity quiet --self-contained --configuration Debug --framework net6.0 -p:PublishSingleFile=true --runtime $os-x64 --output bin/tmp
-	}
-	else {
-		dotnet publish --nologo --verbosity quiet --self-contained --configuration Release --framework net6.0 -p:PublishSingleFile=true -p:PublishTrimmed=true --runtime $os-x64 --output bin/tmp
-	}
+foreach ($os in $archs) {
 	if ($os -eq "win") {
-		Move-Item -Path "bin/tmp/Loretta.LanguageServer.exe" -Destination "bin/loretta-lsp-win.exe"
+		Remove-Item -Path "bin/loretta-lsp-win.exe" -ErrorAction SilentlyContinue
 	}
 	else {
-		Move-Item -Path "bin/tmp/Loretta.LanguageServer" -Destination "bin/loretta-lsp-$os"
+		Remove-Item -Path "bin/loretta-lsp-$os" -ErrorAction SilentlyContinue
 	}
-	Remove-Item -Path "bin/tmp" -Recurse
+	dotnet publish @dotnetArgs --runtime "$os-x64" --output "bin/$os"
+	if ($os -eq "win") {
+		Copy-Item -Path "bin/$os/Loretta.LanguageServer.exe" -Destination "bin/loretta-lsp-win.exe"
+	}
+	else {
+		Copy-Item -Path "bin/$os/Loretta.LanguageServer" -Destination "bin/loretta-lsp-$os"
+	}
 }
 Pop-Location
