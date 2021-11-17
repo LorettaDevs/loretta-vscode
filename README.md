@@ -15,10 +15,4 @@ A really barebones language server for lua/glua with the following features:
 - Currently there is no support for code formatting customization.
 - Code formatting is a bit weird currently.
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 0.0.1
-
-Initial release of Loretta VSCode
+<!-- ## Release Notes -->
