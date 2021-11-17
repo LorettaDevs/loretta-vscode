@@ -11,7 +11,8 @@ import { ExtensionContext } from 'vscode';
 import {
   LanguageClient,
   LanguageClientOptions,
-  ServerOptions
+  ServerOptions,
+  Trace
 } from 'vscode-languageclient/node';
 
 const binaryMap: Partial<Record<NodeJS.Platform, string>> = {
@@ -19,8 +20,6 @@ const binaryMap: Partial<Record<NodeJS.Platform, string>> = {
   'linux': 'loretta-lsp-linux',
   'darwin': 'loretta-lsp-osx'
 };
-
-let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
 
@@ -39,20 +38,17 @@ export function activate(context: ExtensionContext) {
   };
 
   // Create the language client and start the client.
-  client = new LanguageClient(
+  const client = new LanguageClient(
     'loretta',
     'Loretta',
     serverOptions,
     clientOptions
   );
+  client.registerProposedFeatures();
+  client.trace = Trace.Verbose;
 
   // Start the client. This will also launch the server
-  client.start();
-}
+  let disposable = client.start();
 
-export function deactivate(): Thenable<void> | undefined {
-  if (!client) {
-    return undefined;
-  }
-  return client.stop();
+  context.subscriptions.push(disposable);
 }
