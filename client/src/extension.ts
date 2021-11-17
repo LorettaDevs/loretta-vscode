@@ -12,7 +12,8 @@ import {
   LanguageClient,
   LanguageClientOptions,
   ServerOptions,
-  Trace
+  Trace,
+  TransportKind
 } from 'vscode-languageclient/node';
 
 const binaryMap: Partial<Record<NodeJS.Platform, string>> = {
@@ -30,7 +31,9 @@ export function activate(context: ExtensionContext) {
     chmodSync(command, '777');
 
   const serverOptions: ServerOptions = {
-    command: command
+    command: command,
+    transport: TransportKind.pipe,
+    runtime: ""
   };
 
   const clientOptions: LanguageClientOptions = {
