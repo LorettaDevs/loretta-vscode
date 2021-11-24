@@ -39,5 +39,6 @@ foreach ($os in $archs) {
 	else {
 		Copy-Item -Path "bin/$os/Loretta.LanguageServer" -Destination "bin/loretta-lsp-$os"
 	}
+	Remove-Item -Path "bin/$os" -Recurse
 }
 Pop-Location
