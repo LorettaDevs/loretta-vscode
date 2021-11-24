@@ -2,13 +2,17 @@ param(
 	[switch]$Debug = $false
 )
 
+$package = Get-Content "package.json" | ConvertFrom-Json
+$version = $package.version
+
 $archs = @("win", "linux", "osx")
 $dotnetArgs = @(
 	"--nologo",
 	"--verbosity", "quiet",
 	"--self-contained",
 	"--framework", "net6.0",
-	"-p:PublishSingleFile=true"
+	"-p:PublishSingleFile=true",
+	"-p:Version=$version"
 )
 if ($Debug) {
 	$dotnetArgs += @("--configuration", "Debug")
