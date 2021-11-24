@@ -1,8 +1,9 @@
-.vscode/**
-.vscode-test/**
+.vscode
+node_modules
 client/src/**
 client/testFixture/**
 server/**
 !server/bin/**
-.gitignore
-vsc-extension-quickstart.md
+package-json.lock
+tsconfig.json
+webpack.config.js

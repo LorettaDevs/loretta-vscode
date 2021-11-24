@@ -1,9 +1,6 @@
 $paths = @(
-	"client/node_modules",
 	"client/out",
-	"client/package-lock.json",
 	"client/package.json",
-	"client/tsconfig.json",
 	"server/bin",
 	"syntaxes",
 	".vscodeignore",
