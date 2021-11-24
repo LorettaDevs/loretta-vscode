@@ -4,7 +4,7 @@
   "description": "A Lua/GLua language server",
   "author": "GGG-KILLER",
   "license": "MIT",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/GGG-KILLER/loretta-vscode",
   "repository": {
     "type": "git",
