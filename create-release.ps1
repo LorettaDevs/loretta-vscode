@@ -5,11 +5,9 @@ $paths = @(
 	"syntaxes",
 	".vscodeignore",
 	"language-configuration.json",
-	"package-lock.json",
 	"package.json",
 	"README.md",
-	"LICENSE.md",
-	"tsconfig.json"
+	"LICENSE.md"
 );
 $package = Get-Content "package.json" | ConvertFrom-Json
 $version = $package.version
