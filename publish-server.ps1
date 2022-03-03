@@ -25,6 +25,12 @@ else {
 }
 
 Push-Location "server"
+if ($Debug) {
+	dotnet clean --configuration Debug
+}
+else {
+	dotnet clean --configuration Release
+}
 foreach ($os in $archs) {
 	if ($os -eq "win") {
 		Remove-Item -Path "bin/loretta-lsp-win.exe" -ErrorAction SilentlyContinue
