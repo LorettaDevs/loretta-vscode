@@ -1,7 +1,7 @@
 {
   "name": "loretta-lua",
-  "displayName": "Lua/GLua",
-  "description": "A Lua/GLua language server",
+  "displayName": "Lua Language Server",
+  "description": "A Lua/GLua/Luau language server",
   "author": "GGG-KILLER",
   "license": "MIT",
   "version": "0.0.6",
@@ -19,6 +19,8 @@
   "keywords": [
     "Lua",
     "GLua",
+    "Luau",
+    "Roblox Lua",
     "Intellisense"
   ],
   "engines": {
@@ -113,12 +115,12 @@
     "postinstall": "cd client && npm install && cd .."
   },
   "devDependencies": {
-    "@types/mocha": "^8.2.2",
-    "@types/node": "^12.12.0",
-    "@typescript-eslint/eslint-plugin": "^4.23.0",
-    "@typescript-eslint/parser": "^4.23.0",
-    "eslint": "^7.26.0",
-    "mocha": "^9.2.1",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
+    "mocha": "^10.0.0",
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.3",
     "webpack": "^5.64.3",
