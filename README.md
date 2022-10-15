@@ -16,6 +16,13 @@ A really barebones language server for lua/glua with the following features:
 - Code formatting is a bit weird currently.
 
 ## Release Notes
+### v0.0.6
+#### Fixed
+- Fixed a bug with a `TypeCastException` being thrown when files were edited.
+### v0.0.5
+#### Added
+- Added support for Lua 5.4 variable attributes;
+- Added support for Luau (Roblox Lua) typed lua.
 ### v0.0.4
 #### Fixed
 - Fixed parameter names not being marked as readonly when they are.
