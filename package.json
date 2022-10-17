@@ -2,15 +2,15 @@
   "name": "loretta-lua",
   "displayName": "Lua Language Server",
   "description": "A Lua/GLua/Luau language server",
-  "author": "GGG-KILLER",
+  "author": "Loretta Developers",
   "license": "MIT",
   "version": "0.0.6",
-  "homepage": "https://github.com/GGG-KILLER/loretta-vscode",
+  "homepage": "https://github.com/LorettaDevs/loretta-vscode",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GGG-KILLER/loretta-vscode"
+    "url": "https://github.com/LorettaDevs/loretta-vscode"
   },
-  "publisher": "GGG-KILLER",
+  "publisher": "lorettadevs",
   "categories": [
     "Programming Languages",
     "Formatters",
