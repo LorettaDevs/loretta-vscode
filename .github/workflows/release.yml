@@ -22,6 +22,18 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Restore Deps
+        run: |
+          pushd server
+          dotnet restore
+          popd
+
+          pushd client
+          yarn install
+          popd
+
+          yarn install
+
       - id: create-release
         run: ./create-release.ps1
         shell: pwsh
