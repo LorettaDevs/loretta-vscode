@@ -22,6 +22,8 @@ const binaryMap: Partial<Record<NodeJS.Platform, string>> = {
   'darwin': 'loretta-lsp-osx'
 };
 
+let client: LanguageClient;
+
 export function activate(context: ExtensionContext) {
 
   const command: string = context.asAbsolutePath(
@@ -41,17 +43,22 @@ export function activate(context: ExtensionContext) {
   };
 
   // Create the language client and start the client.
-  const client = new LanguageClient(
+  client = new LanguageClient(
     'loretta',
     'Loretta',
     serverOptions,
     clientOptions
   );
   client.registerProposedFeatures();
-  client.trace = Trace.Verbose;
+  client.setTrace(Trace.Verbose);
 
   // Start the client. This will also launch the server
-  let disposable = client.start();
+  client.start();
+}
 
-  context.subscriptions.push(disposable);
+export function deactivate(): Thenable<void> | undefined {
+  if (!client) {
+    return undefined;
+  }
+  return client.stop();
 }
