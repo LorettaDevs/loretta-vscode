@@ -18,6 +18,8 @@ $distDir = "dist"
 $distVersionDir = "$distDir/$version"
 $vsixName = "vscode-loretta-$version.vsix"
 
+Write-Output "::set-output name=VERSION::$version"
+
 yarn run compile
 Remove-Item $distDir -Recurse
 New-Item $distVersionDir -ItemType Directory
