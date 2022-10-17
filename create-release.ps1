@@ -1,3 +1,6 @@
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+
 $paths = @(
 	"client/out",
 	"client/package.json",
@@ -15,7 +18,7 @@ $distDir = "dist"
 $distVersionDir = "$distDir/$version"
 $vsixName = "vscode-loretta-$version.vsix"
 
-npm run compile
+yarn run compile
 Remove-Item $distDir -Recurse
 New-Item $distVersionDir -ItemType Directory
 foreach ($path in $paths) {

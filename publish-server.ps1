@@ -2,6 +2,9 @@ param(
 	[switch]$Debug = $false
 )
 
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+
 $package = Get-Content "package.json" | ConvertFrom-Json
 $version = $package.version
 
@@ -10,7 +13,6 @@ $dotnetArgs = @(
 	"--nologo",
 	"--verbosity", "quiet",
 	"--self-contained",
-	"--framework", "net6.0",
 	"-p:PublishSingleFile=true",
 	"-p:Version=$version"
 )
@@ -25,12 +27,6 @@ else {
 }
 
 Push-Location "server"
-if ($Debug) {
-	dotnet clean --configuration Debug
-}
-else {
-	dotnet clean --configuration Release
-}
 foreach ($os in $archs) {
 	if ($os -eq "win") {
 		Remove-Item -Path "bin/loretta-lsp-win.exe" -ErrorAction SilentlyContinue
