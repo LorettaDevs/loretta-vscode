@@ -4,3 +4,4 @@ goto
 VSCode
 glua
 GLua
+LuaJIT

@@ -4,7 +4,7 @@
   "description": "A Lua/GLua/Luau language server",
   "author": "Loretta Developers",
   "license": "MIT",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/LorettaDevs/loretta-vscode",
   "repository": {
     "type": "git",

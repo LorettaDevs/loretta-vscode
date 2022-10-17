@@ -1,4 +1,8 @@
-{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QRelease Notes\nv0.0.7\nFixed\nFixed semantic highlighting support for type syntax.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QCurrently, there is no support for code formatting customization.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qv0.0.7\nAdded\nAdded support for \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q suffixes for LuaJIT.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\Qv0.0.7\nAdded\nAdded support for \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q suffixes for LuaJIT.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QFixed\nFixed semantic highlighting support for type syntax.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QFixed local variable attributes formatting.\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qv0.0.6\nFixed\nFixed a bug with a \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q being thrown when files were edited.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\Qv0.0.6\nFixed\nFixed a bug with a \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q being thrown when files were edited.\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qv0.0.5\nAdded\nAdded support for Lua 5.4 variable attributes;\nAdded support for Luau (Roblox Lua) typed lua.\\E$"}
@@ -8,4 +12,3 @@
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QFixed parameters and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q variables not having their declaration highlighted when the caret is on a reference to them.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QFixed implicit variables not being declared as readonly when they don't have a declaration (like \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q).\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QAdded\nAdded semantic syntax highlighting support for function names.\\E$"}
-{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QCurrently, there is no support for code formatting customization.\\E$"}
