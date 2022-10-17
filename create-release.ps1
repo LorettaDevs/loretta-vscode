@@ -18,15 +18,19 @@ $distDir = "dist"
 $distVersionDir = "$distDir/$version"
 $vsixName = "vscode-loretta-$version.vsix"
 
+Write-Output "Version: $version"
 Write-Output "::set-output name=VERSION::$version"
 
 yarn run compile
+
 Remove-Item $distDir -Recurse -ErrorAction SilentlyContinue
 New-Item $distVersionDir -ItemType Directory
 foreach ($path in $paths) {
-	Copy-Item -Path $path -Destination "$distVersionDir/$path" -Recurse
+	Copy-Item $path -Destination "$distVersionDir/$path" -Recurse
 }
+
 Push-Location $distVersionDir
 npx vsce package -o "../$vsixName"
 Pop-Location
-Remove-Item -Path $distVersionDir -Recurse
+
+Remove-Item $distVersionDir -Recurse -ErrorAction Continue
