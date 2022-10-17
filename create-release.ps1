@@ -21,7 +21,7 @@ $vsixName = "vscode-loretta-$version.vsix"
 Write-Output "::set-output name=VERSION::$version"
 
 yarn run compile
-Remove-Item $distDir -Recurse
+Remove-Item $distDir -Recurse -ErrorAction SilentlyContinue
 New-Item $distVersionDir -ItemType Directory
 foreach ($path in $paths) {
 	Copy-Item -Path $path -Destination "$distVersionDir/$path" -Recurse
