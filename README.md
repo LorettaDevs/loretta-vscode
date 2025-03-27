@@ -1,5 +1,9 @@
 # Loretta VSCode
 
+> [!CAUTION]
+> Repository has been archived due to a lack of time to maintain it.
+
+
 ## Features
 
 A really bare-bones language server for Lua/GLua/Luau/Roblox Lua with the following features:
